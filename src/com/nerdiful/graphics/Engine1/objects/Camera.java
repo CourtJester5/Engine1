@@ -4,6 +4,18 @@ import java.util.Vector;
 
 public class Camera
 {
-	private Vector position = new Vector();
-	private Vector target = new Vector();
+	private Point3D position = new Point3D(-10, 0, 0);
+	private Point3D rotation = new Point3D(0, 0, 0);
+	
+	
+	
+	public Point3D getPosition()
+	{
+		return position;
+	}
+	
+	public void move(int x, int y, int z)
+	{
+		position.add(x, y, z);
+	}
 }
