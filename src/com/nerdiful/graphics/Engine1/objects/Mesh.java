@@ -4,14 +4,19 @@ import java.util.Vector;
 
 public class Mesh
 {
-	private String name;
+	private String name = null;
 	private Vector position;
 	private Vector rotation;
-	private Vector[] vertices;
+	private Point3D[] vertices;
 	
-	public Mesh(String name, int numVertices)
+	public Mesh(String name, Point3D[] verts)
 	{
 		this.name = name;
-		vertices = new Vector[numVertices];
+		vertices = verts;
+	}
+	
+	public Point3D[] getPoints()
+	{
+		return vertices;
 	}
 }
