@@ -1,10 +1,9 @@
 package com.nerdiful.graphics.Engine1.core;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
 import com.nerdiful.graphics.Engine1.objects.Camera;
 
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -13,8 +12,8 @@ public class Screen extends JFrame
 {
 	private static final String TITLE = "3D Engine V_1";
 	
-	private static int width = 1080;
-	private static int height = 720;
+	public static int width = 1080;
+	public static int height = 720;
 	
 	private BufferedImage image;
 	
