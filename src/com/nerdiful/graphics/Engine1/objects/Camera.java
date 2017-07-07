@@ -13,20 +13,34 @@ public class Camera
 	private Point3D position;
 	private Point3D rotation;
 	private Rectangle2D projectionPlane;
-	
 	private double projPlaneDist = 0.5;
+	
+	private static double speed = .05;
+	private static Point3D move;
 	
 	public Camera()
 	{
-		position = new Point3D(1.5, .5, -5);
+		position = new Point3D(1.5, .75, -7.5);
 		rotation = new Point3D(0, 0, 0);
 		projectionPlane = new Rectangle2D.Double(position.getPosition()[0]-PROJ_PLANE_W/2,
 				position.getPosition()[1]-PROJ_PLANE_H / 2, PROJ_PLANE_W, PROJ_PLANE_H);
+		
+		move = new Point3D();
 	}
 	
-	public void move(int x, int y, int z)
+	public static void setDelta(int[] axisDelta)
 	{
-		position.add(x, y, z);
+		Point3D temp = new Point3D();
+		temp.getPosition()[0] += axisDelta[0] + axisDelta[1];
+		temp.getPosition()[1] += axisDelta[2] + axisDelta[3];
+		temp.getPosition()[2] += axisDelta[4] + axisDelta[5];
+		
+		move = temp.multDouble(speed);
+	}
+	
+	public void update()
+	{
+		position.add(move);
 	}
 	
 	public Point3D getPosition()

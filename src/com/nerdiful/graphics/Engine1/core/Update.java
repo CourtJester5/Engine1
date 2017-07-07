@@ -1,4 +1,5 @@
 package com.nerdiful.graphics.Engine1.core;
+
 import com.nerdiful.graphics.Engine1.Engine;
 import com.nerdiful.graphics.Engine1.objects.Camera;
 import com.nerdiful.graphics.Engine1.objects.Mesh;
@@ -19,17 +20,17 @@ public class Update
 	{
 		camera = new Camera();
 		cube = new Mesh("Cube", constructCube());
-		//cube2 = new Mesh("Cube2", constructCube2(), Color.BLUE);
+		cube2 = new Mesh("Cube2", constructCube2(), Color.BLUE);
 		
 		meshes = new ArrayList<Mesh>();
 		meshes.add(cube);
-		//meshes.add(cube2);
+		meshes.add(cube2);
 		meshes.add(new Mesh("Origin", new Point3D[] {new Point3D(0,0,0)}, Color.RED));
 	}
 	
 	public void update()
 	{
-		
+		camera.update();
 	}
 	
 	public Camera getCamera()
@@ -67,7 +68,7 @@ public class Update
 			{
 				for(int z=-1; z<=1; z+=2)
 				{
-					verts[vert] = new Point3D((double)x*5/6, (double)y*5/6, (double)z*5/6);
+					verts[vert] = new Point3D((double)x/2, (double)y/2, (double)z/2);
 					vert++;
 				}
 			}
